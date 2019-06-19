@@ -15,7 +15,9 @@
 		"arrow-parens": false,
 		"no-unused-expression": false,
 		"array-type": false,
-		"forin": false
+		"forin": false,
+		"indent": true,
+		"eofline": true
 	},
 	"rulesDirectory": [],
 	"linterOptions": {

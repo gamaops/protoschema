@@ -9,28 +9,28 @@ import pkg from './package.json';
 
 export default {
 	input: 'src/index.ts',
-	sourceMap: true,
 	output: [
 		{ file: pkg.main, name: 'protoschema', format: 'umd', sourcemap: true },
 		{ file: pkg.module, format: 'es', sourcemap: true },
 	],
-	watch: {
-		include: 'src/**',
-	},
 	plugins: [
 		json(),
 		typescript({ useTsconfigDeclarationDir: true }),
 		commonjs(),
 		resolve({
-			module: true,
 			jsnext: true,
 			main: true,
+			module: true,
 		}),
 		replace({
-			exclude: 'node_modules/**',
 			ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+			exclude: 'node_modules/**',
 		}),
 		(process.env.NODE_ENV === 'production'),
 		sourceMaps(),
 	],
+	sourceMap: true,
+	watch: {
+		include: 'src/**',
+	},
 };
