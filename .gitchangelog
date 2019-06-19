@@ -1,0 +1,7 @@
+{
+	"scopes":[
+		"repository",
+		"parser"
+	],
+	"types":"atom"
+}
