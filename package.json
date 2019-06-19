@@ -9,7 +9,7 @@
     "start": "rollup -c rollup.config.ts -w",
     "coverage": "nyc npm run test",
     "test": "ts-mocha -p specs/tsconfig.spec.json 'specs/unit/**/*.spec.ts' -b",
-    "test:tdd": "nodemon --watch './*' -x 'npm run test' -e ts"
+    "test:tdd": "npm run test -- -w"
   },
   "repository": {
     "type": "git",

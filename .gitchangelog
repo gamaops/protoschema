@@ -3,5 +3,18 @@
 		"repository",
 		"parser"
 	],
-	"types":"atom"
+	"types": {
+		"🆕 - when add code or file(s)": "🆕 when add code or file(s)",
+		"🎨 - when improving the format/structure of the code": "🎨 when improving the format/structure of the code",
+		"🚀 - when improving performance": "🚀 when improving performance",
+		"📝 - when writing docs": "📝 when writing docs",
+		"🔤 - when renamining or fixing syntax errors": "🔤 when renamining or fixing syntax errors",
+		"🐛 - when fixing a bug": "🐛 when fixing a bug",
+		"🔥 - when removing code or file(s)": "🔥 when removing code or file(s)",
+		"💚 - when fixing the CI build": "💚 when fixing the CI build",
+		"🚥 - when adding tests": "🚥 when adding tests",
+		"⬆️ - when upgrading dependencies": "when upgrading dependencies",
+		"⬇️ - when downgrading dependencies": "when downgrading dependencies",
+		"👕 - when improving or fixing linters": "👕 when improving or fixing linters"
+	}
 }

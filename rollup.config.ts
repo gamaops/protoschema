@@ -18,9 +18,7 @@ export default {
 		typescript({ useTsconfigDeclarationDir: true }),
 		commonjs(),
 		resolve({
-			jsnext: true,
-			main: true,
-			module: true,
+			mainFields: ['module', 'main', 'jsnext:main'],
 		}),
 		replace({
 			ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
@@ -29,7 +27,6 @@ export default {
 		(process.env.NODE_ENV === 'production'),
 		sourceMaps(),
 	],
-	sourceMap: true,
 	watch: {
 		include: 'src/**',
 	},
