@@ -6,4 +6,3 @@
 	console.log('hello');
 
 }));
-//# sourceMappingURL=index.umd.js.map
