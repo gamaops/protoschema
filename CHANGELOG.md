@@ -1,3 +1,12 @@
+## 2019-06-22T23:19:54.887Z
+### 🔧 - changing configuration parameters (repository)
+
+#### 
+
+- Configure typings
+
+-----------------------------
+
 ## 2019-06-22T23:18:24.728Z
 ### 🆕 - add code or file(s) (repository)
 
