@@ -1,13 +1,16 @@
 {
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
-		"typeRoots": [
-			"./node_modules/@types"
-		],
+    "module": "commonjs",
 		"types": [
 			"mocha",
 			"sinon",
 			"chai"
-		]
+		],
+		"paths": {
+			"@src/*": [
+				"../src/*"
+			]
+		}
 	}
 }
