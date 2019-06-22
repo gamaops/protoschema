@@ -1,3 +1,12 @@
+## 2019-06-22T23:14:58.274Z
+### 🆕 - add code or file(s) (repository)
+
+#### 
+
+- Add module alias
+
+-----------------------------
+
 ## 2019-06-20T00:38:27.329Z
 ### 🔧 - changing configuration parameters (project)
 
