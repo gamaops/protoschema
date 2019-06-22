@@ -8,8 +8,8 @@
     "build": "rollup -c rollup.config.ts --environment NODE_ENV:production",
     "start": "rollup -c rollup.config.ts -w",
     "coverage": "nyc npm run test",
-    "test": "ts-mocha -p specs/tsconfig.spec.json 'specs/unit/**/*.spec.ts' -b",
-    "test:tdd": "npm run test -- -w"
+    "test": "ts-mocha -p specs/tsconfig.spec.json 'specs/unit/**/*.spec.ts' -b -r 'module-alias/register'",
+    "test:tdd": "npm run test -- -w --extension ts"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,10 @@
   },
   "main": "dist/index.umd.js",
   "module": "dist/index.es5.js",
-  "typings": "dist/types/index.d.ts",
+  "typings": "dist/typings/src/index.d.ts",
+  "_moduleAliases": {
+    "@src": "src"
+  },
   "keywords": [
     "protobuf",
     "json",
@@ -54,6 +57,7 @@
   "homepage": "https://github.com/exocet-engineering/protoschema#readme",
   "devDependencies": {
     "@types/chai": "^4.1.7",
+    "@types/json-schema": "^7.0.3",
     "@types/mocha": "^5.2.7",
     "@types/mock-require": "^2.0.0",
     "@types/node": "^12.0.8",
@@ -64,6 +68,7 @@
     "husky": "^2.4.1",
     "mocha": "^6.1.4",
     "mock-require": "^3.0.3",
+    "module-alias": "^2.2.0",
     "nyc": "^14.1.1",
     "rimraf": "^2.6.3",
     "rollup": "^1.15.6",
