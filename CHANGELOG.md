@@ -1,3 +1,12 @@
+## 2019-06-22T23:18:24.728Z
+### 🆕 - add code or file(s) (repository)
+
+#### 
+
+- Create the firts encoder
+
+-----------------------------
+
 ## 2019-06-22T23:14:58.274Z
 ### 🆕 - add code or file(s) (repository)
 
