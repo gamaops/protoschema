@@ -1,7 +1,7 @@
 {
   "name": "protoschema",
   "version": "0.0.0",
-  "description": "The coolest JSON Schema to Protobuf definitions parser",
+  "description": "The coolest JSON Schema to Protobuf 3 definitions parser",
   "scripts": {
     "lint": "tslint --fix -c 'tslint.json' -e './node_modules/**/*' './**/*.ts'",
     "prebuild": "rimraf dist",

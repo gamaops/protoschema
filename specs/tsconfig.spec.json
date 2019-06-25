@@ -6,11 +6,6 @@
 			"mocha",
 			"sinon",
 			"chai"
-		],
-		"paths": {
-			"@src/*": [
-				"../src/*"
-			]
-		}
+		]
 	}
 }

@@ -1,4 +1,4 @@
-# Contributing to Gliese
+# Contributing
 
 :bulb::tada: First off, thanks for taking the time to contribute! :tada::bulb:
 

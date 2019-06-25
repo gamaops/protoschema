@@ -8,7 +8,7 @@ describe(
     beforeEach(
       () => {
         delete require.cache[require.resolve('@src/encoder')];
-        encoder = require('@src/encoder').Encoder;
+        encoder = require('@src/encoder');
       },
     );
 
@@ -25,15 +25,15 @@ describe(
         it(
           'Should exists',
           () => {
-            expect(encoder).to.have.property('parser').to.be.an('function');
+            expect(encoder).to.have.property('encode').to.be.an('function');
           },
         );
 
         it(
           'Shoud valid json-schema',
           () => {
-            expect(() => encoder.parser({})).to.throw('should have a property $id or $message');
-            expect(() => encoder.parser({ $id: 'Teste' })).to.throw('should have a property properties');
+            expect(() => encoder.encode({})).to.throw('You must specify $id or $message property as a not empty string');
+            expect(() => encoder.encode({ $id: 'Teste' })).to.throw('Your schema doesn\'t have a "propeties" attribute');
           },
         );
 
@@ -67,7 +67,7 @@ describe(
               type: 'object',
             };
 
-            const proto = encoder.parser(jsonschema);
+            const proto = encoder.encode(jsonschema);
 
             expect(proto).to.be.equal([
               'message mockedSchema {',
