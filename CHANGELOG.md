@@ -1,3 +1,15 @@
+## 2019-06-25T23:17:11.903Z
+### 🆕 - add code or file(s) (project)
+
+#### none
+
+- Finish first version of encoder logic
+- Add support to refs
+- Add support to arrays
+- Add support to null values booleans
+
+-----------------------------
+
 ## 2019-06-22T23:19:54.887Z
 ### 🔧 - changing configuration parameters (repository)
 
