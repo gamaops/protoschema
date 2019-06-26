@@ -1,3 +1,12 @@
+## 2019-06-26T11:15:02.277Z
+### 🚥 - adding tests (project)
+
+#### none
+
+- Add encoder's parsers unit tests
+
+-----------------------------
+
 ## 2019-06-26T10:43:01.998Z
 ### 🤡 - mocking things (project)
 
