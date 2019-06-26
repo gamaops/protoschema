@@ -1,3 +1,13 @@
+## 2019-06-26T12:23:38.658Z
+### 🔥 - removing code or file(s) (project)
+
+#### none
+
+- Remove nyc configuration (put in package.json)
+- Remove ts-mocha
+
+-----------------------------
+
 ## 2019-06-26T11:56:54.645Z
 ### 🚥 - adding tests (project)
 
