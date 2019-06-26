@@ -1,3 +1,12 @@
+## 2019-06-26T23:31:03.607Z
+### 📝 - writing docs (project)
+
+#### none
+
+- Add first version of GUIDE.md
+
+-----------------------------
+
 ## 2019-06-26T22:45:32.552Z
 ### 🚥 - adding tests (project)
 
