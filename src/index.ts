@@ -7,6 +7,10 @@ import {
 	validateSchema,
 } from './helpers';
 
+export {
+	IJSONSchemaProto,
+	IEncoderOptions,
+};
 export class ProtoSchema {
 
 	private encoderOptions: IEncoderOptions;

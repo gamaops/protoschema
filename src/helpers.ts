@@ -18,7 +18,7 @@ export const selectSchemas = (
 
 	return schemas.filter((schema) => {
 
-		let prefix: string | null = null;
+		let prefix: string = '';
 
 		if (schema.$namespace !== undefined) {
 
