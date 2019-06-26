@@ -1,3 +1,13 @@
+## 2019-06-26T11:56:54.645Z
+### 🚥 - adding tests (project)
+
+#### none
+
+- Add encode function test
+- Add organization message proto definition mock
+
+-----------------------------
+
 ## 2019-06-26T11:15:02.277Z
 ### 🚥 - adding tests (project)
 
