@@ -1,11 +1,25 @@
 {
-	"extends": "../tsconfig.json",
 	"compilerOptions": {
-    "module": "commonjs",
-		"types": [
-			"mocha",
-			"sinon",
-			"chai"
-		]
+	  "target": "es2018",
+	  "module": "commonjs",
+	  "sourceMap": false,
+	  "outDir": "./dist",
+	  "removeComments": true,
+	  "strict": true,
+	  "noImplicitAny": true,
+	  "strictNullChecks": true,
+	  "strictFunctionTypes": true,
+	  "strictBindCallApply": true,
+	  "strictPropertyInitialization": true,
+	  "noImplicitThis": true,
+	  "alwaysStrict": true,
+	  "noUnusedLocals": true,
+	  "noUnusedParameters": true,
+	  "noImplicitReturns": true,
+	  "noFallthroughCasesInSwitch": true,
+	  "moduleResolution": "node",
+	  "esModuleInterop": true,
+	  "resolveJsonModule": true,
 	}
-}
+  }
+  

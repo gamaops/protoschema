@@ -60,41 +60,45 @@ var parseType = function (sourceType, byteLength) {
         protobufType: ProtobufTypes[schemaType],
     };
 };
-var parseRefType = function (property) {
+var parseRefType = function (property, refs) {
     if (property.$ref !== undefined) {
         var types = Array.isArray(property.type) ? property.type : [property.type];
+        var protobufType = "" + (property.$namespace ? property.$namespace + '.' : '') + property.$ref;
+        if (!refs.includes(protobufType)) {
+            refs.push(protobufType);
+        }
         return {
             isNullable: types.includes('null'),
-            protobufType: "" + (property.$namespace ? property.$namespace + '.' : '') + property.$ref,
+            protobufType: protobufType,
         };
     }
     return null;
 };
-var parseArrayType = function (property) {
+var parseArrayType = function (property, refs) {
     if (property.items !== undefined) {
         if (property.items.$ref !== undefined) {
-            return parseRefType(property.items);
+            return parseRefType(property.items, refs);
         }
         return parseType(property.items.type, property.byteLength);
     }
     return null;
 };
-var parseProperty = function (property) {
+var parseProperty = function (property, refs) {
     var parsedType = null;
     var prefix = '';
     if (property.type === 'array') {
-        parsedType = parseArrayType(property);
+        parsedType = parseArrayType(property, refs);
         if (parsedType !== null) {
             prefix = 'repeated ';
         }
     }
     else if (property.$ref !== undefined) {
-        parsedType = parseRefType(property);
+        parsedType = parseRefType(property, refs);
     }
     if (parsedType === null) {
         parsedType = parseType(property.type, property.byteLength);
     }
-    if (parsedType == null) {
+    if (parsedType === null) {
         return null;
     }
     return __assign({}, parsedType, { prefix: prefix });
@@ -102,18 +106,20 @@ var parseProperty = function (property) {
 var encode = function (schema, options) {
     if (options === void 0) { options = defaultEncoderOptions; }
     options = __assign({}, defaultEncoderOptions, options);
+    var refs = [];
     var namespaceProto = null;
+    var messageRef = '';
     if (schema.$namespace !== undefined) {
         namespaceProto = "package " + schema.$namespace + ";";
+        messageRef = schema.$namespace + '.';
     }
-    var messageProto = [
-        "message " + schema.$id + " {",
-    ];
+    messageRef += schema.$id;
+    var messageProto = ["message " + schema.$id + " {"];
     var counter = 1;
     for (var key in schema.properties) {
         var property = schema.properties[key];
         if (typeof property === 'object' && property.type !== undefined) {
-            var parsedProperty = parseProperty(property);
+            var parsedProperty = parseProperty(property, refs);
             if (parsedProperty === null) {
                 continue;
             }
@@ -126,7 +132,9 @@ var encode = function (schema, options) {
     messageProto.push('}');
     return {
         message: messageProto.join('\n'),
+        messageRef: messageRef,
         namespace: namespaceProto,
+        refs: refs,
     };
 };
 
@@ -175,24 +183,40 @@ var ProtoSchema = (function () {
             return messages.includes("" + prefix + schema.$id);
         });
     };
+    ProtoSchema.prototype.enqueueEncodingRefs = function (schemas, proto, encodedMessages) {
+        encodedMessages.add(proto.messageRef);
+        for (var _i = 0, _a = proto.refs; _i < _a.length; _i++) {
+            var ref = _a[_i];
+            if (encodedMessages.has(ref)) {
+                continue;
+            }
+            encodedMessages.add(ref);
+            var refSchema = this.selectSchemas(ref)[0];
+            if (refSchema !== undefined) {
+                schemas.push(refSchema);
+            }
+        }
+    };
     ProtoSchema.prototype.encode = function () {
         var messages = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             messages[_i] = arguments[_i];
         }
         var schemas = this.selectSchemas.apply(this, messages);
-        if (schemas.length === 0) {
-            return null;
-        }
         var protosMap = new Map();
-        for (var _a = 0, schemas_2 = schemas; _a < schemas_2.length; _a++) {
-            var schema = schemas_2[_a];
+        var encodedMessages = new Set();
+        while (schemas.length > 0) {
+            var schema = schemas.shift();
             var proto = encode(schema, this.encoderOptions);
+            if (encodedMessages.has(proto.messageRef)) {
+                continue;
+            }
             var content = protosMap.get(proto.namespace) || proto.namespace || '';
             if (content.length > 0) {
                 content += '\n\n';
             }
             protosMap.set(proto.namespace, content + proto.message + '\n\n');
+            this.enqueueEncodingRefs(schemas, proto, encodedMessages);
         }
         return Array.from(protosMap.values());
     };
