@@ -1,3 +1,13 @@
+## 2019-06-26T22:45:32.552Z
+### 🚥 - adding tests (project)
+
+#### none
+
+- Add helpers unit test
+- Add ProtoSchema (index) unit test
+
+-----------------------------
+
 ## 2019-06-26T22:44:43.667Z
 ### 🔧 - changing configuration parameters (project)
 
