@@ -1,0 +1,18 @@
+{
+	"$id": "Location",
+	"$namespace": "mapping",
+	"type": "object",
+	"properties": {
+		"type": {
+			"type": "string"
+		},
+		"latitude": {
+			"type": "number",
+			"byteLength": 64
+		},
+		"longitude": {
+			"type": "number",
+			"byteLength": 64
+		}
+	}
+}

@@ -1,0 +1,39 @@
+{
+	"$id": "Organization",
+	"$namespace": "identity",
+	"type": "object",
+	"properties": {
+		"name": {
+			"type": "string"
+		},
+		"description": {
+			"type": ["string", "null"]
+		},
+		"active": {
+			"type": "boolean"
+		},
+		"valuation": {
+			"type": "number",
+			"byteLength": 32
+		},
+		"peopleCount": {
+			"type": "integer",
+			"byteLength": 32
+		},
+		"createdAtTimestamp": {
+			"type": "integer",
+			"byteLength": 64
+		},
+		"headOfficeLocation": {
+			"$ref": "Location",
+			"$namespace": "mapping"
+		},
+		"subsidiariesLocations": {
+			"type": "array",
+			"items": {
+				"$ref": "Location",
+				"$namespace": "mapping"
+			}
+		}
+	}
+}
