@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "The coolest JSON Schema to Protobuf 3 definitions parser",
   "scripts": {
-    "lint": "tslint --fix -c 'tslint.json' -e './node_modules/**/*' './**/*.ts'",
+    "lint": "tslint --fix -c 'tslint.json' -e './node_modules/**/*' -e './dist/types/**/*' './**/*.ts'",
     "prebuild": "rimraf dist",
     "build": "rollup -c rollup.config.ts --environment NODE_ENV:production",
     "start": "rollup -c rollup.config.ts -w",
@@ -30,9 +30,9 @@
     "type": "git",
     "url": "git+https://github.com/exocet-engineering/protoschema.git"
   },
-  "main": "dist/index.umd.js",
+  "main": "dist/index.cjs.js",
   "module": "dist/index.es5.js",
-  "typings": "dist/typings/src/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "_moduleAliases": {
     "@src": "src"
   },

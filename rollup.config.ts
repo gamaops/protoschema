@@ -10,7 +10,7 @@ import pkg from './package.json';
 export default {
 	input: 'src/index.ts',
 	output: [
-		{ file: pkg.main, name: 'protoschema', format: 'umd', sourcemap: false },
+		{ file: pkg.main, name: 'protoschema', format: 'cjs', sourcemap: false },
 		{ file: pkg.module, format: 'es', sourcemap: false },
 	],
 	plugins: [
