@@ -214,9 +214,9 @@ describe(
 
 						refs = [];
 						protoType = encoder.parseRefType({
-                            $ref: 'Location',
-                            type: ['object', 'null'],
-                        }, refs);
+														$ref: 'Location',
+														type: ['object', 'null'],
+												}, refs);
 						expect(protoType).to.be.an('object');
 						expect(protoType.isNullable).to.be.true;
 						expect(protoType.protobufType).to.be.equal('Location');
@@ -232,9 +232,9 @@ describe(
 
 						let refs: Array<string> = [];
 						let protoType = encoder.parseRefType({
-                            $namespace: 'mapping',
-                            $ref: 'Location',
-                        }, refs);
+														$namespace: 'mapping',
+														$ref: 'Location',
+												}, refs);
 						expect(protoType).to.be.an('object');
 						expect(protoType.isNullable).to.be.false;
 						expect(protoType.protobufType).to.be.equal('mapping.Location');
@@ -243,10 +243,10 @@ describe(
 
 						refs = [];
 						protoType = encoder.parseRefType({
-                            $namespace: 'mapping',
-                            $ref: 'Location',
-                            type: ['object', 'null'],
-                        }, refs);
+														$namespace: 'mapping',
+														$ref: 'Location',
+														type: ['object', 'null'],
+												}, refs);
 						expect(protoType).to.be.an('object');
 						expect(protoType.isNullable).to.be.true;
 						expect(protoType.protobufType).to.be.equal('mapping.Location');
@@ -306,9 +306,9 @@ describe(
 						const refs: Array<any> = [];
 						const protoType = encoder.parseArrayType({
 							items: {
-                                $namespace: 'mapping',
-                                $ref: 'Location',
-                            },
+																$namespace: 'mapping',
+																$ref: 'Location',
+														},
 						}, refs);
 						expect(protoType).to.be.an('object');
 						expect(protoType.protobufType).to.be.equal('mapping.Location');
@@ -365,11 +365,11 @@ describe(
 
 						const refs: Array<string> = [];
 						const protoType = encoder.parseProperty({
-                            items: {
-                                type: 'string',
-                            },
-                            type: 'array',
-                        }, refs);
+														items: {
+																type: 'string',
+														},
+														type: 'array',
+												}, refs);
 						expect(protoType.protobufType).to.be.equal('string');
 						expect(protoType.isNullable).to.be.equal(false);
 						expect(protoType.prefix).to.be.equal('repeated ');
@@ -383,9 +383,9 @@ describe(
 
 						const refs: Array<string> = [];
 						const protoType = encoder.parseProperty({
-                            $namespace: 'mapping',
-                            $ref: 'Location',
-                        }, refs);
+														$namespace: 'mapping',
+														$ref: 'Location',
+												}, refs);
 						expect(protoType.protobufType).to.be.equal('mapping.Location');
 						expect(protoType.isNullable).to.be.equal(false);
 						expect(protoType.prefix).to.be.equal('');

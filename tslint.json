@@ -16,7 +16,11 @@
 		"no-unused-expression": false,
 		"array-type": false,
 		"forin": false,
-		"indent": true,
+		"indent": [
+			true,
+			"tabs",
+			2
+		],
 		"eofline": true
 	},
 	"rulesDirectory": [],

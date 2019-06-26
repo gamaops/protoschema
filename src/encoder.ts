@@ -73,7 +73,7 @@ export const parseArrayType = (property: IJSONSchemaProto, refs: Array<string>):
 			return parseRefType(property.items, refs);
 		}
 
-		return parseType(property.items.type, property.byteLength);
+		return parseType(property.items.type, property.items.byteLength);
 
 	}
 
@@ -138,9 +138,9 @@ export const encode = (
 
 	for (const key in schema.properties) {
 
-    	const property: IJSONSchemaProto = schema.properties[key] as IJSONSchemaProto;
+		const property: IJSONSchemaProto = schema.properties[key] as IJSONSchemaProto;
 
-		   if (typeof property === 'object' && property.type !== undefined) {
+		if (typeof property === 'object' && property.type !== undefined) {
 
 			const parsedProperty = parseProperty(property, refs);
 
@@ -156,7 +156,7 @@ export const encode = (
 
 		}
 
-    }
+	}
 
 	messageProto.push('}');
 
@@ -165,6 +165,6 @@ export const encode = (
 		messageRef,
 		namespace: namespaceProto,
 		refs,
-    };
+	};
 
 };
