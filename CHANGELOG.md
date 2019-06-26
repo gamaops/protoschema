@@ -1,3 +1,12 @@
+## 2019-06-26T12:46:33.949Z
+### 👕 - improving or fixing linters (project)
+
+#### none
+
+- Fix spec lint errors
+
+-----------------------------
+
 ## 2019-06-26T12:23:38.658Z
 ### 🔥 - removing code or file(s) (project)
 
