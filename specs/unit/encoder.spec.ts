@@ -1,14 +1,26 @@
 import { expect } from 'chai';
+import fs from 'fs';
 
 describe(
 	'Encoder',
 	() => {
 		let encoder: any;
+		let organizationSchema: any;
+		let organizationMessageProto: any;
 
 		beforeEach(
 			() => {
+
+				organizationMessageProto = fs.readFileSync(
+					require.resolve('../mocks/organization-message.proto')
+				).toString('utf8');
+
+				delete require.cache[require.resolve('../mocks/organization.json')];
+				organizationSchema = require('../mocks/organization.json');
+
 				delete require.cache[require.resolve('@src/encoder')];
 				encoder = require('@src/encoder');
+
 			},
 		);
 
@@ -379,6 +391,52 @@ describe(
 						expect(protoType.prefix).to.be.equal('');
 						expect(refs.length).to.be.equal(1);
 						expect(refs[0]).to.be.equal('mapping.Location');
+					},
+				);
+
+			}
+		);
+
+		describe(
+			'encode',
+			() => {
+
+				it(
+					'Should be exported',
+					() => {
+						expect(encoder).to.have.property('encode').that.is.a('function');
+					},
+				);
+
+				it(
+					'Should encode JSON Schema to Proto definition',
+					() => {
+
+						const encodedProto = encoder.encode(organizationSchema);
+						expect(encodedProto).to.be.an('object');
+						expect(encodedProto.messageRef).to.be.equal('identity.Organization');
+						expect(encodedProto.namespace).to.be.equal('package identity;');
+						expect(encodedProto.refs.length).to.be.equal(1);
+						expect(encodedProto.refs[0]).to.be.equal('mapping.Location');
+						expect(encodedProto.message).to.be.equal(organizationMessageProto);
+					
+					},
+				);
+
+				it(
+					'Should encode JSON Schema to Proto definition without namespace',
+					() => {
+
+						delete organizationSchema.$namespace;
+
+						const encodedProto = encoder.encode(organizationSchema);
+						expect(encodedProto).to.be.an('object');
+						expect(encodedProto.messageRef).to.be.equal('Organization');
+						expect(encodedProto.namespace).to.be.equal(null);
+						expect(encodedProto.refs.length).to.be.equal(1);
+						expect(encodedProto.refs[0]).to.be.equal('mapping.Location');
+						expect(encodedProto.message).to.be.equal(organizationMessageProto);
+					
 					},
 				);
 

@@ -1,0 +1,11 @@
+message Organization {
+	string name = 1;
+	string description = 2;
+	bool __isNull_description = 3;
+	bool active = 4;
+	float valuation = 5;
+	int32 peopleCount = 6;
+	int64 createdAtTimestamp = 7;
+	repeated mapping.Location subsidiariesLocations = 8;
+	repeated string tags = 9;
+}

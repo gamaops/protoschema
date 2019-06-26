@@ -34,6 +34,15 @@
 				"$ref": "Location",
 				"$namespace": "mapping"
 			}
+		},
+		"tags": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		},
+		"invalidType": {
+			"type": "invalidType"
 		}
 	}
 }
