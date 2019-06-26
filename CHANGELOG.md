@@ -1,3 +1,13 @@
+## 2019-06-26T22:44:43.667Z
+### 🔧 - changing configuration parameters (project)
+
+#### none
+
+- Ignore types for tslint
+- Add types to package.json
+
+-----------------------------
+
 ## 2019-06-26T17:12:44.732Z
 ### 👕 - improving or fixing linters (project)
 
