@@ -99,7 +99,7 @@ export const parseProperty = (property: IJSONSchemaProto, refs: Array<string>): 
 		parsedType = parseType(property.type, property.byteLength);
 	}
 
-	if (parsedType == null) {
+	if (parsedType === null) {
 		return null;
 	}
 
