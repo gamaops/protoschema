@@ -1,3 +1,12 @@
+## 2019-06-26T10:43:01.998Z
+### 🤡 - mocking things (project)
+
+#### none
+
+- Add mocked JSON Schemas
+
+-----------------------------
+
 ## 2019-06-25T23:17:11.903Z
 ### 🆕 - add code or file(s) (project)
 
