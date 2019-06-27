@@ -433,7 +433,7 @@ describe(
 					() => {
 
 						const encodedProto = encoder.encode(organizationSchema, {
-							nullKeyPrefix: null
+							nullKeyPrefix: null,
 						});
 						expect(encodedProto).to.be.an('object');
 						expect(encodedProto.messageRef).to.be.equal('identity.Organization');
