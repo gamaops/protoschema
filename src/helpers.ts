@@ -44,14 +44,16 @@ export const enqueueEncodingRefs = (
 ): void => {
 
 	encodedMessages.add(proto.messageRef);
+	const uniqueRefs = Array.from(new Set<string>(proto.refs));
+	const enqueuedRefs = new Set<string>();
 
-	for (const ref of proto.refs) {
+	for (const ref of uniqueRefs) {
 
-		if (encodedMessages.has(ref)) {
+		if (enqueuedRefs.has(ref) || encodedMessages.has(ref)) {
 			continue;
 		}
 
-		encodedMessages.add(ref);
+		enqueuedRefs.add(ref);
 		const [refSchema] = selectSchemas(
 			schemas,
 			[ref],

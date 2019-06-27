@@ -164,12 +164,14 @@ var selectSchemas = function (schemas, messages) {
 };
 var enqueueEncodingRefs = function (schemas, queue, proto, encodedMessages) {
     encodedMessages.add(proto.messageRef);
-    for (var _i = 0, _a = proto.refs; _i < _a.length; _i++) {
-        var ref = _a[_i];
-        if (encodedMessages.has(ref)) {
+    var uniqueRefs = Array.from(new Set(proto.refs));
+    var enqueuedRefs = new Set();
+    for (var _i = 0, uniqueRefs_1 = uniqueRefs; _i < uniqueRefs_1.length; _i++) {
+        var ref = uniqueRefs_1[_i];
+        if (enqueuedRefs.has(ref) || encodedMessages.has(ref)) {
             continue;
         }
-        encodedMessages.add(ref);
+        enqueuedRefs.add(ref);
         var refSchema = selectSchemas(schemas, [ref])[0];
         if (refSchema !== undefined) {
             queue.push(refSchema);

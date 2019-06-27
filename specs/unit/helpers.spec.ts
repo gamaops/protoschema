@@ -138,10 +138,7 @@ describe(
 							encodedMessages,
 						);
 
-						expect(encodedMessages.size).to.be.equal(3);
-						expect(encodedMessages.has('identity.Organization')).to.be.true;
-						expect(encodedMessages.has('mapping.Location')).to.be.true;
-						expect(encodedMessages.has('any')).to.be.true;
+						expect(encodedMessages.size).to.be.equal(1);
 						expect(queue.length).to.be.equal(1);
 						expect(queue).to.contain(locationSchema);
 					},
