@@ -1,5 +1,12 @@
 # ProtoSchema
 
+[![NPM](https://nodei.co/npm/protoschema.png)](https://nodei.co/npm/protoschema/)
+
+![GitHub](https://img.shields.io/github/license/exocet-engineering/protoschema.svg)
+![npm](https://img.shields.io/npm/dw/protoschema.svg)
+![npm](https://img.shields.io/npm/v/protoschema.svg)
+![npm type definitions](https://img.shields.io/npm/types/protoschema.svg)
+
 ProtoSchema is the coolest JSON Schema 7 to Protobuf 3 definitions encoder.
 
 * It's written in TypeScript and transpiled to Javascript
