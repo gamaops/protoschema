@@ -22,4 +22,6 @@
 
 ### Documentation Styleguide
 
-* Use [CHANGELOG.md](CHANGELOG.md) to doc your changes.
+* Use **git-changelog** [CHANGELOG.md](CHANGELOG.md) to generate the changelog.
+* Use the [API_REFERENCE.md](docs/API_REFERENCE.md) to document the behavior and the contract of the API.
+* Use the [GUIDE.md](docs/GUIDE.md) to document the use of package.

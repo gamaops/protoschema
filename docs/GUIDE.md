@@ -122,7 +122,6 @@ const encoded = protoschema.encode(
 );
 
 // Our proto definitions for each namespace
-
 console.log(encoded.identity);
 console.log(encoded.mapping);
 ```

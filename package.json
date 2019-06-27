@@ -11,6 +11,11 @@
     "test": "TS_NODE_PROJECT='specs/tsconfig.spec.json' mocha 'specs/unit/**/*.spec.ts' -b -r 'ts-node/register' -r 'module-alias/register'",
     "test:tdd": "npm run test -- -w --extension ts"
   },
+  "files": [
+    "src/",
+    "dist/",
+    "docs/"
+  ],
   "nyc": {
     "include": [
       "src/**/*.ts"

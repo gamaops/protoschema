@@ -152,7 +152,7 @@ var validateSchema = function (schema) {
 };
 var selectSchemas = function (schemas, messages) {
     return schemas.filter(function (schema) {
-        var prefix = null;
+        var prefix = '';
         if (schema.$namespace !== undefined) {
             if (messages.includes(schema.$namespace)) {
                 return true;
