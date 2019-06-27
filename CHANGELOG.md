@@ -1,3 +1,12 @@
+## 2019-06-27T10:35:35.969Z
+### 🆕 - add code or file(s) (project)
+
+#### none
+
+- Allow to disable the null key prefix feature
+
+-----------------------------
+
 ## 2019-06-27T10:22:16.170Z
 ### 🐛 - fixing a bug (project)
 
