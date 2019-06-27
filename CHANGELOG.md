@@ -1,3 +1,12 @@
+## 2019-06-27T12:42:20.476Z
+### 📝 - writing docs (project)
+
+#### none
+
+- Add badges to README
+
+-----------------------------
+
 ## 2019-06-27T10:37:43.225Z
 ### 👕 - improving or fixing linters (project)
 
