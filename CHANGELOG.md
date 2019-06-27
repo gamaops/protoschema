@@ -1,3 +1,12 @@
+## 2019-06-27T10:07:04.659Z
+### 🖊️ - fixing typos (project)
+
+#### none
+
+- Fix contributor URL typo on License topic
+
+-----------------------------
+
 ## 2019-06-27T10:05:51.589Z
 ### 📝 - writing docs (project)
 
