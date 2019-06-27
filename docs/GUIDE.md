@@ -162,7 +162,7 @@ Note that the `organizationSchema.properties.description` can be null, and the f
 
 
 ```typescript
-import { ProtoSchema } from 'protoschema';
+import { ProtoSchema, IEncoderOptions } from 'protoschema';
 
 const encoderOptions: IEncoderOptions = {
   nullKeyPrefix: 'isNull'
