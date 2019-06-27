@@ -1,3 +1,12 @@
+## 2019-06-27T10:37:43.225Z
+### 👕 - improving or fixing linters (project)
+
+#### none
+
+- Fix lint error on encoder
+
+-----------------------------
+
 ## 2019-06-27T10:35:35.969Z
 ### 🆕 - add code or file(s) (project)
 
