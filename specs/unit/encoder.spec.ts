@@ -7,12 +7,17 @@ describe(
 		let encoder: any;
 		let organizationSchema: any;
 		let organizationMessageProto: any;
+		let organizationMessageProtoNotNull: any;
 
 		beforeEach(
 			() => {
 
 				organizationMessageProto = fs.readFileSync(
 					require.resolve('../mocks/organization-message.proto'),
+				).toString('utf8');
+
+				organizationMessageProtoNotNull = fs.readFileSync(
+					require.resolve('../mocks/organization-message-not-null.proto'),
 				).toString('utf8');
 
 				delete require.cache[require.resolve('../mocks/organization.json')];
@@ -419,6 +424,23 @@ describe(
 						expect(encodedProto.refs.length).to.be.equal(1);
 						expect(encodedProto.refs[0]).to.be.equal('mapping.Location');
 						expect(encodedProto.message).to.be.equal(organizationMessageProto);
+
+					},
+				);
+
+				it(
+					'Should encode JSON Schema to Proto definition without null prefix',
+					() => {
+
+						const encodedProto = encoder.encode(organizationSchema, {
+							nullKeyPrefix: null
+						});
+						expect(encodedProto).to.be.an('object');
+						expect(encodedProto.messageRef).to.be.equal('identity.Organization');
+						expect(encodedProto.namespace).to.be.equal('package identity;');
+						expect(encodedProto.refs.length).to.be.equal(1);
+						expect(encodedProto.refs[0]).to.be.equal('mapping.Location');
+						expect(encodedProto.message).to.be.equal(organizationMessageProtoNotNull);
 
 					},
 				);

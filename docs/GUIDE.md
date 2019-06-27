@@ -7,7 +7,7 @@ This project depends on some standards to work properly, these standards were th
 * Arrays can have only one type.
 * The `$namespace` property is a custom attribute read by this library to specify the proto definition namespace.
 * `number` and `integer` types can have the length specified by the `byteLength` custom property, the default value is **32**.
-* The `null` type is encoded as an additional boolean property in proto definition prefixed by a string to indicate that the target property is declared as null, you can use the [@exocet/value-flagger](https://github.com/exocet-engineering/exocet-value-flagger) to deal with this behavior. This is required as Protobuf 3 doesn't have support to `null` values.
+* The `null` type is encoded as an additional boolean property in proto definition prefixed by a string to indicate that the target property is declared as null, you can use the [@exocet/value-flagger](https://github.com/exocet-engineering/exocet-value-flagger) to deal with this behavior. This is required as Protobuf 3 doesn't have support to `null` values. You can disable this feature.
 * The ID of every proto definition property is generated sequentially respecting the JSON Schema property specification sequence.
 
 -----------------------
@@ -160,12 +160,23 @@ console.log(encoded.default);
 
 Note that the `organizationSchema.properties.description` can be null, and the following protobuf definition property will be generated: `bool __isNull_description = 3;`. The **\_\_isNull\_** is the default prefix to identify null values. You can change this prefix through encoder options:
 
-
 ```typescript
 import { ProtoSchema, IEncoderOptions } from 'protoschema';
 
 const encoderOptions: IEncoderOptions = {
   nullKeyPrefix: 'isNull'
+};
+
+const protoschema: ProtoSchema = new ProtoSchema(encoderOptions);
+```
+
+And if you don't want this feature, you can disable it by passing `null` as the key prefix:
+
+```typescript
+import { ProtoSchema, IEncoderOptions } from 'protoschema';
+
+const encoderOptions: IEncoderOptions = {
+  nullKeyPrefix: null
 };
 
 const protoschema: ProtoSchema = new ProtoSchema(encoderOptions);

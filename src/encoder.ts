@@ -150,7 +150,7 @@ export const encode = (
 
 			messageProto.push(`\t${parsedProperty.prefix}${parsedProperty.protobufType} ${key} = ${counter++};`);
 
-			if (parsedProperty.isNullable) {
+			if (parsedProperty.isNullable && options.nullKeyPrefix) {
 				messageProto.push(`\tbool ${options.nullKeyPrefix}${key} = ${counter++};`);
 			}
 

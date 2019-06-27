@@ -24,7 +24,7 @@ ProtoSchema is the main class of this package that encapsulates all the function
 
 **Options**
 
-* **encoderOptions.nullKeyPrefix** - The prefix to be concatenated to properties name to identify `null` values in protobufs messages.
+* **encoderOptions.nullKeyPrefix** - The prefix to be concatenated to properties name to identify `null` values in protobufs messages. To disable this feature you can specify this property as `null`.
 
 ----------------------
 

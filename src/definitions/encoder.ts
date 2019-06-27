@@ -15,7 +15,7 @@ export interface IEncodedProto {
 }
 
 export interface IEncoderOptions {
-	nullKeyPrefix?: string;
+	nullKeyPrefix?: string | null;
 }
 
 export const defaultEncoderOptions: IEncoderOptions = {
