@@ -30,4 +30,4 @@ See the [contributing guide](CONTRIBUTING.md) and the [code of conduct](CODE_OF_
 
 This project is licensed under the MIT license.
 
-Copyright © 2019 [codermarcos](https://github.com/vflopes) and [vflopes](https://github.com/vflopes)
+Copyright © 2019 [codermarcos](https://github.com/codermarcos) and [vflopes](https://github.com/vflopes)
