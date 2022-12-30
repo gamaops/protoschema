@@ -86,7 +86,7 @@
     "@types/sinon": "^7.0.13",
     "chai": "^4.2.0",
     "husky": "^2.4.1",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "mock-require": "^3.0.3",
     "module-alias": "^2.2.0",
     "nyc": "^14.1.1",
